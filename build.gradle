@@ -1,0 +1,31 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+apply from: '../gradlecommon/spring-boot-deps.gradle'
+
+
+group = 'rcstadheim'
+archivesBaseName = 'generaljournal'
+
+version = '1.0'
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+          
+
+dependencies {
+    compile project(':oahu')
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0'
+    runtimeOnly 'org.postgresql:postgresql'
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+}
+
+bootJar.enabled = false
+jar.enabled = true

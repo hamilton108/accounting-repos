@@ -1,0 +1,8 @@
+.idea/
+.gradle/
+.nrepl-port
+build/
+gradle/
+gradlew
+gradlew.bat
+out/
