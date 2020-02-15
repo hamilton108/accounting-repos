@@ -2,14 +2,8 @@ package generaljournal.mybatis;
 
 import generaljournal.dto.GeneralJournalBean;
 import generaljournal.dto.Ns4102Bean;
-import oahu.financial.Stock;
-import oahu.financial.StockPrice;
-import org.apache.ibatis.session.SqlSession;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.WeakHashMap;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +11,7 @@ import java.util.WeakHashMap;
  * Date: 5/26/13
  * Time: 3:44 PM
  */
-public class Facade {
+public class GjFacade {
 
 
     public List<GeneralJournalBean> selectByBilag(int numItems) {
