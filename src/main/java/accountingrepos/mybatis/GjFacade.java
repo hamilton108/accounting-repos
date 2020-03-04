@@ -1,7 +1,7 @@
-package generaljournal.mybatis;
+package accountingrepos.mybatis;
 
-import generaljournal.dto.GeneralJournalBean;
-import generaljournal.dto.Ns4102Bean;
+import accountingrepos.dto.GeneralJournalBean;
+import accountingrepos.dto.Ns4102Bean;
 
 import java.util.List;
 
@@ -30,6 +30,12 @@ public class GjFacade {
         return MyBatisUtils.withSession((session) -> {
             var mapper = session.getMapper(Ns4102Mapper.class);
             return mapper.selectNs4102();
+        });
+    }
+    public List<Ns4102Bean> selectDebits() {
+        return MyBatisUtils.withSession((session) -> {
+            var mapper = session.getMapper(Ns4102Mapper.class);
+            return mapper.selectDebits();
         });
     }
 

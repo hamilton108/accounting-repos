@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="generaljournal.mybatis.GeneralJournalMapper">
+<mapper namespace="accountingrepos.mybatis.GeneralJournalMapper">
 
     <!--
     Column |       Type        |
@@ -15,7 +15,7 @@
     -->
 
     <resultMap id="generalJournalResultMap"
-               type="generaljournal.dto.GeneralJournalBean">
+               type="accountingrepos.dto.GeneralJournalBean">
         <id column="oid" property="id"/>
         <result column="bilag" property="bilag"/>
         <result column="dato" property="transactionDateSql"/>
@@ -35,7 +35,7 @@
     </select>
 
     <insert id="insertGeneralJournal"
-            parameterType="generaljournal.dto.GeneralJournalBean"
+            parameterType="accountingrepos.dto.GeneralJournalBean"
             useGeneratedKeys="true"
             keyProperty="id" >
         insert into regnskap.kassadagbok (bilag, dato, debet, kredit, tekst, belop)

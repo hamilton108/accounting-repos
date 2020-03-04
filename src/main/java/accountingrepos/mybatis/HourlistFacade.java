@@ -1,7 +1,6 @@
-package generaljournal.mybatis;
+package accountingrepos.mybatis;
 
-import generaljournal.dto.GeneralJournalBean;
-import generaljournal.dto.HourlistBean;
+import accountingrepos.dto.HourlistBean;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="generaljournal.mybatis.HourlistMapper">
+<mapper namespace="accountingrepos.mybatis.HourlistMapper">
 
     <resultMap id="hourlistResultMap"
-               type="generaljournal.dto.HourlistBean">
+               type="accountingrepos.dto.HourlistBean">
         <id column="oid" property="oid" jdbcType="INTEGER" />
         <result column="fnr" property="invoiceNr"/>
         <result column="dato" property="sqlDate"/>
@@ -30,14 +30,14 @@
     </select>
 
     <insert id="insertHourlist"
-            parameterType="generaljournal.dto.HourlistBean"
+            parameterType="accountingrepos.dto.HourlistBean"
             useGeneratedKeys="true"
             keyProperty="oid" >
         insert into regnskap.timeliste (fnr, dato, timer, gruppe, fra_klokken, til_klokken)
         values (#{invoiceNr}, #{sqlDate}, #{hours}, #{groupId}, #{fromTime}, #{toTime})
     </insert>
     <update id="updateHourlist"
-        parameterType="generaljournal.dto.HourlistBean">
+        parameterType="accountingrepos.dto.HourlistBean">
         update regnskap.timeliste set fnr=#{invoiceNr},dato=#{sqlDate},timer=#{hours},gruppe=#{groupId},
         fra_klokken=#{fromTime},til_klokken=#{toTime} where oid=#{oid}
     </update>

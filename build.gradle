@@ -8,7 +8,7 @@ apply from: '../gradlecommon/spring-boot-deps.gradle'
 
 
 group = 'rcstadheim'
-archivesBaseName = 'generaljournal'
+archivesBaseName = 'accounting-repos'
 
 version = '1.0'
 

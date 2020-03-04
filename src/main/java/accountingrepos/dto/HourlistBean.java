@@ -1,4 +1,4 @@
-package generaljournal.dto;
+package accountingrepos.dto;
 
 import java.sql.Date;
 import java.time.LocalDate;

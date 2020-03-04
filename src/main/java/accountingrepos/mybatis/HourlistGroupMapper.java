@@ -1,6 +1,6 @@
-package generaljournal.mybatis;
+package accountingrepos.mybatis;
 
-import generaljournal.dto.HourlistGroupBean;
+import accountingrepos.dto.HourlistGroupBean;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

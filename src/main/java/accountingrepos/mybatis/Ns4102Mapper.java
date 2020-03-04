@@ -1,6 +1,6 @@
-package generaljournal.mybatis;
+package accountingrepos.mybatis;
 
-import generaljournal.dto.Ns4102Bean;
+import accountingrepos.dto.Ns4102Bean;
 
 import java.util.List;
 
@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface Ns4102Mapper {
     List<Ns4102Bean> selectNs4102();
+    List<Ns4102Bean> selectDebits();
 }

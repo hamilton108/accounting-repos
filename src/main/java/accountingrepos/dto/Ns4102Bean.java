@@ -1,4 +1,4 @@
-package generaljournal.dto;
+package accountingrepos.dto;
 
 /**
  * Created with IntelliJ IDEA.

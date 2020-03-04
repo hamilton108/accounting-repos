@@ -1,4 +1,4 @@
-package generaljournal.dto;
+package accountingrepos.dto;
 
 import java.time.LocalDate;
 import java.sql.Date;
@@ -65,6 +65,13 @@ public class GeneralJournalBean {
 
     public LocalDate getTransactionDate() {
         return transactionDate;
+    }
+
+    public String getTransactionDateStr() {
+        return String.format("%d-%d-%d",
+                transactionDate.getYear(),
+                transactionDate.getMonthValue(),
+                transactionDate.getDayOfMonth());
     }
 
     public void setTransactionDate(LocalDate transactionDate) {

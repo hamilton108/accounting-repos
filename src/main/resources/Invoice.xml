@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="generaljournal.mybatis.InvoiceMapper">
+<mapper namespace="accountingrepos.mybatis.InvoiceMapper">
 
     <resultMap id="invoiceResultMap"
-               type="generaljournal.dto.InvoiceBean">
+               type="accountingrepos.dto.InvoiceBean">
         <result column="fnr" property="invoiceNum"/>
         <result column="spesifikasjon" property="description"/>
         <result column="navn" property="customerName"/>
