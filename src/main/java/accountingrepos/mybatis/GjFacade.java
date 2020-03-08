@@ -38,6 +38,12 @@ public class GjFacade {
             return mapper.selectDebits();
         });
     }
+    public void insert(GeneralJournalBean bean) {
+        MyBatisUtils.withSessionConsumer((session) -> {
+            var mapper = session.getMapper(GeneralJournalMapper.class);
+            mapper.insertGeneralJournal(bean);
+        });
+    }
 
     /*
     public static void main(String[] args) {
