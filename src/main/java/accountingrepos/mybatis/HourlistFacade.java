@@ -1,7 +1,9 @@
 package accountingrepos.mybatis;
 
 import accountingrepos.dto.HourlistBean;
+import accountingrepos.dto.HourlistGroupBean;
 import accountingrepos.dto.InvoiceBean;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,6 +19,13 @@ public class HourlistFacade {
         return MyBatisUtils.withSession((session) -> {
             var mapper = session.getMapper(InvoiceMapper.class);
             return mapper.selectInvoices();
+        });
+    }
+
+    public List<HourlistGroupBean> selectHourlistGroups(boolean showInactive) {
+        return MyBatisUtils.withSession((session) -> {
+            var mapper = session.getMapper(HourlistGroupMapper.class);
+            return mapper.selectHourlistGroups(showInactive);
         });
     }
 }
