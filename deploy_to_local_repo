@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+mvn deploy:deploy-file -DgroupId=rcstadheim -DartifactId=accounting-repos \
+    -Dversion=1.0 -Dpackaging=jar -Dfile=build/libs/accounting-repos-1.0.jar \
+    -Durl=file:repo
+
+
+exit 0
