@@ -1,8 +1,9 @@
 #!/bin/bash
 
+VER="1.1.0"
 
 mvn deploy:deploy-file -DgroupId=rcstadheim -DartifactId=accounting-repos \
-    -Dversion=1.0 -Dpackaging=jar -Dfile=build/libs/accounting-repos-1.0.jar \
+    -Dversion=${VER} -Dpackaging=jar -Dfile=build/libs/accounting-repos-${VER}.jar \
     -Durl=file:repo
 
 
