@@ -9,12 +9,25 @@
         <result column="spesifikasjon" property="description"/>
         <result column="navn" property="customerName"/>
     </resultMap>
+    <resultMap id="companyResultMap"
+               type="accountingrepos.dto.CompanyBean">
+        <result column="oid" property="oid"/>
+        <result column="navn" property="companyName"/>
+    </resultMap>
+
+
+    <select id="selectCompanies" parameterType="map" resultMap="companyResultMap">
+        select oid,navn from regnskap.firma_person order by navn
+    </select>
 
     <!-- fakturax2
         oid | fnr | fakturadato |  forfall   | spesifikasjon | navn | fakturasum
     -->
     <select id="selectInvoices" parameterType="map" resultMap="invoiceResultMap">
         select fnr,spesifikasjon,navn from regnskap.fakturax2 where fakturasum is null order by fnr
+    </select>
+    <select id="lastInvoiceNum" resultType="int">
+        select max(fnr) from regnskap.faktura
     </select>
     <update id="updateVoucher">
         update regnskap.faktura set bilag=#{bilag} where fnr=#{fnr}

@@ -1,5 +1,6 @@
 package accountingrepos.mybatis;
 
+import accountingrepos.dto.CompanyBean;
 import accountingrepos.dto.HourlistBean;
 import accountingrepos.dto.HourlistGroupBean;
 import accountingrepos.dto.InvoiceBean;
@@ -13,7 +14,18 @@ public class HourlistFacade {
             return mapper.selectLast5(invoice);
         });
     }
-
+    public List<CompanyBean> selectCompanies() {
+        return MyBatisUtils.withSession((session) -> {
+            var mapper = session.getMapper(InvoiceMapper.class);
+            return mapper.selectCompanies();
+        });
+    }
+    public int lastInvoiceNum() {
+        return MyBatisUtils.withSession((session) -> {
+            var mapper = session.getMapper(InvoiceMapper.class);
+            return mapper.lastInvoiceNum();
+        });
+    }
     public List<InvoiceBean> selectInvoices() {
         return MyBatisUtils.withSession((session) -> {
             var mapper = session.getMapper(InvoiceMapper.class);

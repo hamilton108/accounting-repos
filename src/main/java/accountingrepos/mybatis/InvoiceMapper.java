@@ -1,5 +1,6 @@
 package accountingrepos.mybatis;
 
+import accountingrepos.dto.CompanyBean;
 import accountingrepos.dto.InvoiceBean;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,6 +14,9 @@ import java.util.List;
  */
 public interface InvoiceMapper {
     List<InvoiceBean> selectInvoices();
+    int lastInvoiceNum();
+
+    List<CompanyBean> selectCompanies();
 
     void updateVoucher(@Param("bilag") int bilag,
                        @Param("fnr") int fnr);
