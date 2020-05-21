@@ -1,9 +1,6 @@
 package accountingrepos.mybatis;
 
-import accountingrepos.dto.CompanyBean;
-import accountingrepos.dto.HourlistBean;
-import accountingrepos.dto.HourlistGroupBean;
-import accountingrepos.dto.CurrentInvoiceBean;
+import accountingrepos.dto.*;
 
 import java.util.List;
 
@@ -30,6 +27,12 @@ public class HourlistFacade {
         return MyBatisUtils.withSession((session) -> {
             var mapper = session.getMapper(InvoiceMapper.class);
             return mapper.selectInvoices();
+        });
+    }
+    public void insertInvoice(InvoiceBean invoiceBean) {
+        MyBatisUtils.withSessionConsumer((session) -> {
+            var mapper = session.getMapper(InvoiceMapper.class);
+            mapper.insertInvoice(invoiceBean);
         });
     }
 

@@ -2,6 +2,7 @@ package accountingrepos.mybatis;
 
 import accountingrepos.dto.CompanyBean;
 import accountingrepos.dto.CurrentInvoiceBean;
+import accountingrepos.dto.InvoiceBean;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -20,5 +21,5 @@ public interface InvoiceMapper {
 
     void updateVoucher(@Param("bilag") int bilag,
                        @Param("fnr") int fnr);
-    void insertInvoice(CurrentInvoiceBean currentInvoiceBean);
+    void insertInvoice(InvoiceBean invoiceBean);
 }
