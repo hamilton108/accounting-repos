@@ -3,7 +3,7 @@ package accountingrepos.mybatis;
 import accountingrepos.dto.CompanyBean;
 import accountingrepos.dto.HourlistBean;
 import accountingrepos.dto.HourlistGroupBean;
-import accountingrepos.dto.InvoiceBean;
+import accountingrepos.dto.CurrentInvoiceBean;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class HourlistFacade {
             return mapper.lastInvoiceNum();
         });
     }
-    public List<InvoiceBean> selectInvoices() {
+    public List<CurrentInvoiceBean> selectInvoices() {
         return MyBatisUtils.withSession((session) -> {
             var mapper = session.getMapper(InvoiceMapper.class);
             return mapper.selectInvoices();

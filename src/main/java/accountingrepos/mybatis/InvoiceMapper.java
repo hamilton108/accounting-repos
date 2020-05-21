@@ -1,7 +1,7 @@
 package accountingrepos.mybatis;
 
 import accountingrepos.dto.CompanyBean;
-import accountingrepos.dto.InvoiceBean;
+import accountingrepos.dto.CurrentInvoiceBean;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -13,11 +13,12 @@ import java.util.List;
  * Time: 4:05 PM
  */
 public interface InvoiceMapper {
-    List<InvoiceBean> selectInvoices();
+    List<CurrentInvoiceBean> selectInvoices();
     int lastInvoiceNum();
 
     List<CompanyBean> selectCompanies();
 
     void updateVoucher(@Param("bilag") int bilag,
                        @Param("fnr") int fnr);
+    void insertInvoice(CurrentInvoiceBean currentInvoiceBean);
 }

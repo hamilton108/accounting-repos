@@ -4,7 +4,7 @@
 <mapper namespace="accountingrepos.mybatis.InvoiceMapper">
 
     <resultMap id="invoiceResultMap"
-               type="accountingrepos.dto.InvoiceBean">
+               type="accountingrepos.dto.CurrentInvoiceBean">
         <result column="fnr" property="invoiceNum"/>
         <result column="spesifikasjon" property="description"/>
         <result column="navn" property="customerName"/>
@@ -32,4 +32,10 @@
     <update id="updateVoucher">
         update regnskap.faktura set bilag=#{bilag} where fnr=#{fnr}
     </update>
+    <insert id="insertInvoice"
+            parameterType="accountingrepos.dto.InvoiceBean"
+            useGeneratedKeys="false">
+        insert into regnskap.faktura (fnr, fakturadato, forfall, spesifikasjon, firma_person_id, skaar)
+        values (#{invoiceNum}, #{invoiceDate}, #{dueDate}, #{description}, #{companyId}, #{taxYear})
+    </insert>
 </mapper>
