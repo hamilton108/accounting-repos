@@ -42,6 +42,12 @@ public class HourlistFacade {
             return mapper.selectHourlistGroups(showInactive);
         });
     }
+    public List<HourlistBean> selectHourlists(int invoiceId) {
+        return MyBatisUtils.withSession((session) -> {
+            var mapper = session.getMapper(HourlistMapper.class);
+            return mapper.selectAll(invoiceId);
+        });
+    }
     public void insertHourlist(HourlistBean hourlistBean) {
         MyBatisUtils.withSessionConsumer((session) -> {
             var mapper = session.getMapper(HourlistMapper.class);
