@@ -15,6 +15,6 @@ import java.util.List;
 public interface HourlistMapper {
     void updateHourlist(HourlistBean hb);
     void insertHourlist(HourlistBean hb);
-    List<HourlistBean> selectLast5(@Param("invoice") int invoice);
+    //List<HourlistBean> selectLast5(@Param("invoice") int invoice);
     List<HourlistBean> selectAll(@Param("invoice") int invoice);
 }

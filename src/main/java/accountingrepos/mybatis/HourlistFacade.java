@@ -5,10 +5,19 @@ import accountingrepos.dto.*;
 import java.util.List;
 
 public class HourlistFacade {
+    /*
     public List<HourlistBean> selectLast5(int invoice) {
         return MyBatisUtils.withSession((session) -> {
             var mapper = session.getMapper(HourlistMapper.class);
             return mapper.selectLast5(invoice);
+        });
+    }
+
+     */
+    public List<HourlistBean> selectAll(int invoice) {
+        return MyBatisUtils.withSession((session) -> {
+            var mapper = session.getMapper(HourlistMapper.class);
+            return mapper.selectAll(invoice);
         });
     }
     public List<CompanyBean> selectCompanies() {
@@ -40,12 +49,6 @@ public class HourlistFacade {
         return MyBatisUtils.withSession((session) -> {
             var mapper = session.getMapper(HourlistGroupMapper.class);
             return mapper.selectHourlistGroups(showInactive);
-        });
-    }
-    public List<HourlistBean> selectHourlists(int invoiceId) {
-        return MyBatisUtils.withSession((session) -> {
-            var mapper = session.getMapper(HourlistMapper.class);
-            return mapper.selectAll(invoiceId);
         });
     }
     public void insertHourlist(HourlistBean hourlistBean) {

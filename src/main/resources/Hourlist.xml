@@ -7,6 +7,8 @@
                type="accountingrepos.dto.HourlistBean">
         <id column="oid" property="oid" jdbcType="INTEGER" />
         <result column="fnr" property="invoiceNr"/>
+        <result column="gruppe_id" property="groupId"/>
+        <result column="gruppe_navn" property="groupName"/>
         <result column="dato" property="sqlDate"/>
         <result column="timer" property="hours"/>
         <result column="gruppe" property="groupId"/>
@@ -17,14 +19,14 @@
 
     <!--
     oid | fnr |    dato    | timer | gruppe | spesifikasjon | fra_klokken | til_klokken
-    -->
     <select id="selectLast5" parameterType="map" resultMap="hourlistResultMap">
-        select g.spesifikasjon,t.oid,t.fnr,t.dato,t.timer,t.gruppe,t.fra_klokken,t.til_klokken
+        select g.spesifikasjon,t.oid,t.fnr,t.spesifikasjon,t.dato,t.timer,t.gruppe,t.fra_klokken,t.til_klokken
         from regnskap.timeliste t join regnskap.timeliste_gruppe g on g.oid=t.gruppe
         where t.fnr=#{invoice} order by t.dato desc limit 5
     </select>
+    -->
     <select id="selectAll" parameterType="map" resultMap="hourlistResultMap">
-        select g.spesifikasjon,t.oid,t.fnr,t.dato,t.timer,t.gruppe,t.fra_klokken,t.til_klokken
+        select g.spesifikasjon as gruppe_navn,t.oid,t.fnr,t.dato,t.timer,t.gruppe as gruppe_id,t.fra_klokken,t.til_klokken
         from regnskap.timeliste t join regnskap.timeliste_gruppe g on g.oid=t.gruppe
         where t.fnr=#{invoice} order by t.dato desc
     </select>

@@ -17,6 +17,7 @@ public class HourlistBean {
     private LocalDate localDate;
     private double hours;
     private int groupId;
+    private String groupName;
     private String fromTime;
     private String toTime;
     private String description;
@@ -94,4 +95,11 @@ public class HourlistBean {
         this.description = description;
     }
 
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
 }
