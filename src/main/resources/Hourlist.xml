@@ -7,12 +7,14 @@
                type="accountingrepos.dto.HourlistBean">
         <id column="oid" property="oid" jdbcType="INTEGER" />
         <result column="fnr" property="invoiceNr"/>
+        <result column="spesifikasjon" property="description"/>
         <result column="gruppe_id" property="groupId"/>
         <result column="gruppe_navn" property="groupName"/>
         <result column="dato" property="sqlDate"/>
         <result column="timer" property="hours"/>
         <result column="gruppe" property="groupId"/>
-        <result column="fra_klokken" property="fromTime"/>
+        <result column="fra_klokken" property="fromTime"/
+        >
         <result column="til_klokken" property="toTime"/>
         <result column="spesifikasjon" property="description"/>
     </resultMap>
@@ -26,7 +28,7 @@
     </select>
     -->
     <select id="selectAll" parameterType="map" resultMap="hourlistResultMap">
-        select g.spesifikasjon as gruppe_navn,t.oid,t.fnr,t.dato,t.timer,t.gruppe as gruppe_id,t.fra_klokken,t.til_klokken
+        select g.spesifikasjon as gruppe_navn,t.oid,t.fnr,t.spesifikasjon,t.dato,t.timer,t.gruppe as gruppe_id,t.fra_klokken,t.til_klokken
         from regnskap.timeliste t join regnskap.timeliste_gruppe g on g.oid=t.gruppe
         where t.fnr=#{invoice} order by t.dato desc
     </select>
@@ -35,12 +37,12 @@
             parameterType="accountingrepos.dto.HourlistBean"
             useGeneratedKeys="true"
             keyProperty="oid" >
-        insert into regnskap.timeliste (fnr, dato, timer, gruppe, fra_klokken, til_klokken)
-        values (#{invoiceNr}, #{sqlDate}, #{hours}, #{groupId}, #{fromTime}, #{toTime})
+        insert into regnskap.timeliste (fnr, dato, timer, gruppe, spesifikasjon, fra_klokken, til_klokken)
+        values (#{invoiceNr}, #{sqlDate}, #{hours}, #{groupId}, #{description}, #{fromTime}, #{toTime})
     </insert>
     <update id="updateHourlist"
         parameterType="accountingrepos.dto.HourlistBean">
-        update regnskap.timeliste set fnr=#{invoiceNr},dato=#{sqlDate},timer=#{hours},gruppe=#{groupId},
+        update regnskap.timeliste set fnr=#{invoiceNr},spesifikasjon=#{description},dato=#{sqlDate},timer=#{hours},gruppe=#{groupId},
         fra_klokken=#{fromTime},til_klokken=#{toTime} where oid=#{oid}
     </update>
 </mapper>

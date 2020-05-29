@@ -10,7 +10,7 @@ apply from: '../gradlecommon/spring-boot-deps.gradle'
 group = 'rcstadheim'
 archivesBaseName = 'accounting-repos'
 
-version = '1.7.0'
+version = '1.7.2'
 
 sourceCompatibility = JavaVersion.VERSION_11
 
