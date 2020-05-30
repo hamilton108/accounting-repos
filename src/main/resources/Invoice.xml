@@ -38,4 +38,10 @@
         insert into regnskap.faktura (fnr, fakturadato, forfall, spesifikasjon, firma_person_id, skaar)
         values (#{invoiceNum}, #{invoiceDate}, #{dueDate}, #{description}, #{companyId}, #{taxYear})
     </insert>
+    <insert id="insertFakturaposter"
+            parameterType="accountingrepos.dto.FakturaposterBean"
+            useGeneratedKeys="true">
+        insert into regnskap.fakturaposter (dato,sluttdato,fakturanr,antall,enh_sats,enh,spesifikasjon)
+        values (#{startDate},#{endDate},#{invoiceId},#{amount},#{rate},#{unit},#{description})
+    </insert>
 </mapper>

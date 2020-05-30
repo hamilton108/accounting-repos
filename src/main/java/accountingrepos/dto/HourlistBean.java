@@ -13,7 +13,7 @@ public class HourlistBean {
     //nsert into regnskap.timeliste (fnr, dato, timer, gruppe, fra_klokken, til_klokken
 
     private int oid;
-    private int invoiceNr;
+    private int invoiceId;
     private LocalDate localDate;
     private double hours;
     private int groupId;
@@ -22,12 +22,12 @@ public class HourlistBean {
     private String toTime;
     private String description;
 
-    public int getInvoiceNr() {
-        return invoiceNr;
+    public int getInvoiceId() {
+        return invoiceId;
     }
 
-    public void setInvoiceNr(int invoiceNr) {
-        this.invoiceNr = invoiceNr;
+    public void setInvoiceId(int invoiceId) {
+        this.invoiceId = invoiceId;
     }
 
     //region Dates

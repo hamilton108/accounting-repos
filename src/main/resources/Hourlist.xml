@@ -6,7 +6,7 @@
     <resultMap id="hourlistResultMap"
                type="accountingrepos.dto.HourlistBean">
         <id column="oid" property="oid" jdbcType="INTEGER" />
-        <result column="fnr" property="invoiceNr"/>
+        <result column="fnr" property="invoiceId"/>
         <result column="spesifikasjon" property="description"/>
         <result column="gruppe_id" property="groupId"/>
         <result column="gruppe_navn" property="groupName"/>
@@ -38,11 +38,11 @@
             useGeneratedKeys="true"
             keyProperty="oid" >
         insert into regnskap.timeliste (fnr, dato, timer, gruppe, spesifikasjon, fra_klokken, til_klokken)
-        values (#{invoiceNr}, #{sqlDate}, #{hours}, #{groupId}, #{description}, #{fromTime}, #{toTime})
+        values (#{invoiceId}, #{sqlDate}, #{hours}, #{groupId}, #{description}, #{fromTime}, #{toTime})
     </insert>
     <update id="updateHourlist"
         parameterType="accountingrepos.dto.HourlistBean">
-        update regnskap.timeliste set fnr=#{invoiceNr},spesifikasjon=#{description},dato=#{sqlDate},timer=#{hours},gruppe=#{groupId},
+        update regnskap.timeliste set fnr=#{invoiceId},spesifikasjon=#{description},dato=#{sqlDate},timer=#{hours},gruppe=#{groupId},
         fra_klokken=#{fromTime},til_klokken=#{toTime} where oid=#{oid}
     </update>
 </mapper>

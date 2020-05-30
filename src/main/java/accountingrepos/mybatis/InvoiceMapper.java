@@ -22,4 +22,5 @@ public interface InvoiceMapper {
     void updateVoucher(@Param("bilag") int bilag,
                        @Param("fnr") int fnr);
     void insertInvoice(InvoiceBean invoiceBean);
+    void insertFakturaposter(@Param("fnr") int fnr, @Param("sum") double sum);
 }
