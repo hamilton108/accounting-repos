@@ -69,4 +69,10 @@ public class HourlistFacade {
             mapper.insertHourlistGroup(hourlistGroupBean);
         });
     }
+    public void insertFakturaposter(FakturaposterBean fakturaposterBean) {
+        MyBatisUtils.withSessionConsumer((session) -> {
+            var mapper = session.getMapper(HourlistMapper.class);
+            mapper.insertFakturaposter(fakturaposterBean);
+        });
+    }
 }

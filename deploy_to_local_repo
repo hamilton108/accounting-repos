@@ -1,10 +1,10 @@
 #!/bin/bash
 
-VER="1.7.2"
+VER="1.8.3"
 
 mvn deploy:deploy-file -DgroupId=rcstadheim -DartifactId=accounting-repos \
     -Dversion=${VER} -Dpackaging=jar -Dfile=build/libs/accounting-repos-${VER}.jar \
-    -Durl=file:repo
+    -Durl=file:/home/rcs/opt/java/mavenlocalrepo
 
 
 exit 0

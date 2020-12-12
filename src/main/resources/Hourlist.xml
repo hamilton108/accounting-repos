@@ -13,8 +13,7 @@
         <result column="dato" property="sqlDate"/>
         <result column="timer" property="hours"/>
         <result column="gruppe" property="groupId"/>
-        <result column="fra_klokken" property="fromTime"/
-        >
+        <result column="fra_klokken" property="fromTime"/>
         <result column="til_klokken" property="toTime"/>
         <result column="spesifikasjon" property="description"/>
     </resultMap>
@@ -45,4 +44,11 @@
         update regnskap.timeliste set fnr=#{invoiceNr},spesifikasjon=#{description},dato=#{sqlDate},timer=#{hours},gruppe=#{groupId},
         fra_klokken=#{fromTime},til_klokken=#{toTime} where oid=#{oid}
     </update>
+    <insert id="insertFakturaposter"
+            parameterType="accountingrepos.dto.FakturaposterBean"
+            useGeneratedKeys="true"
+            keyProperty="oid" >
+        insert into regnskap.fakturaposter (dato, sluttdato, fakturanr, antall, enh_sats, enh, spesifikasjon)
+        values (#{fromDate}, #{toDate}, #{invoiceNr}, #{amount}, #{unitRate}, #{unit}, #{description})
+    </insert>
 </mapper>
